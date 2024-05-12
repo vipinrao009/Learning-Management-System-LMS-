@@ -37,6 +37,9 @@ app.use("/api/v1/payment",payment)
 app.use("/api/v1",miscellaneous)
 // 3 module are yet to write
 
+app.use("/",(req,res)=>{
+  res.send("Hello world")
+})
 app.all("*", (req, res) => {
   res.status(404).send("OOPS!! 404 PAGE NOT FOUND");
 });
