@@ -82,10 +82,11 @@ const register = async (req, res, next) => {
   const token = await user.generateJWTToken();
 
   const CookieOptions = {
-    maxAge: 7 * 24 * 60 * 60 * 1000, //7days
-    httpOnly:true, 
-    secure:true,
-  };
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    httpOnly: true,  // Makes cookie inaccessible from JavaScript
+    secure: true,    // Only set cookies over HTTPS (required for production)
+    sameSite: "None",  // Required for cross-origin cookies
+};
 
   //Setting the token in cookie with name token along with cookieOption
   res.cookie("token", token, CookieOptions);
