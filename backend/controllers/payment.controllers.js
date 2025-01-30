@@ -38,6 +38,7 @@ const buySubscription = async (req, res, next) => {
     try {
       const subscription = await razorpay.subscriptions.create(option);
       // Adding the ID and the status to the user account
+      console.log("Razorpay Subscription Response:", subscription);
       user.subscription.id = subscription.id;
       user.subscription.status = subscription.status;
       console.log(subscription.id);
