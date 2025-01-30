@@ -3,6 +3,9 @@ import AppError from "../utils/error.utils.js";
 import User from "../models/userModels.js";
 
 const isLoggedIn = async (req, res, next) => {
+   
+   console.log("All Cookies:", req.cookies); // ✅ Debugging
+
   // extracting token from the cookies
   const { token } = req.cookies;
   console.log("Token from Cookies:", req.cookies.token);
