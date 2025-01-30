@@ -83,7 +83,7 @@ const register = async (req, res, next) => {
 
   const CookieOptions = {
     maxAge: 7 * 24 * 60 * 60 * 1000, //7days
-    httpOnly:true,
+    httpOnly:true, 
     secure:true,
   };
 
