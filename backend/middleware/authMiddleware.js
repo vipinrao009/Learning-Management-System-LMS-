@@ -5,6 +5,7 @@ import User from "../models/userModels.js";
 const isLoggedIn = async (req, res, next) => {
   // extracting token from the cookies
   const { token } = req.cookies;
+  console.log("Token from Cookies:", req.cookies.token);
 
   // if no token send unauthorized message
   if (!token) {

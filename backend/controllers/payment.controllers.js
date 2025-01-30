@@ -16,6 +16,7 @@ const getRazorKey = async (req, res, next) => {
 
 const buySubscription = async (req, res, next) => {
     const { id } = req.user;
+    console.log("Printing the user ID",id)
 
     //check the user that is exist in db or not
     const user = await User.findById(id);
