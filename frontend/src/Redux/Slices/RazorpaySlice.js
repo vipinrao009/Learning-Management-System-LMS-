@@ -23,15 +23,18 @@ export const getRazorPayId = createAsyncThunk("/razorpay/getId",async()=>{
     }
 })
 
-export const purchaseCourseBundle = createAsyncThunk("/razorpay/purchaseCourse",async()=>{
+export const purchaseCourseBundle = createAsyncThunk("/razorpay/purchaseCourse", async () => {
     try {
-        const response =await axiosInstance.post("/payment/subscribe")
+        const response = await axiosInstance.post("/payment/subscribe", {}, {
+            withCredentials: true,  // ✅ Ensures cookies are sent
+        });
         console.log(response.data);
-        return(await response).data
+        return response.data;
     } catch (error) {
-        toast.error(error?.response?.data?.message)
+        toast.error(error?.response?.data?.message);
     }
-})
+});
+
 
 export const verifyUserPayment = createAsyncThunk("/payment/verify",async(data)=>{
     try {
