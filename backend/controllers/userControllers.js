@@ -84,7 +84,7 @@ const register = async (req, res, next) => {
   const CookieOptions = {
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     httpOnly: true,  // Makes cookie inaccessible from JavaScript
-    secure: true,    // Only set cookies over HTTPS (required for production)
+    secure: process.env.NODE_ENV === "production",    // Only set cookies over HTTPS (required for production)
     sameSite: "None",  // Required for cross-origin cookies
 };
 
