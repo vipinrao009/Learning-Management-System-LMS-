@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
 app.use(
   cors({
-    origin:"https://deployment-l8dt-ctkgxjewi-vipin-kumars-projects-f6cf612d.vercel.app",
+    origin:"https://lms-five-gray.vercel.app",
     credentials: true
   })
 );
